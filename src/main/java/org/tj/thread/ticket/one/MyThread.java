@@ -5,7 +5,7 @@ package org.tj.thread.ticket.one;
  */
 public class MyThread implements Runnable{
 
-    private int ticket = 5;
+    private int ticket = 15;
     private String name;
 
     public MyThread(String name){
@@ -13,19 +13,20 @@ public class MyThread implements Runnable{
     }
 
     @Override
-    public void run() {
+    public  void run() {
         for (int i=0;i<10;i++)
         {
             if(ticket > 0){
-                System.out.println(name+" ticket: "+ ticket--);
+                System.out.println(Thread.currentThread()+" ticket: "+ ticket--);
             }
         }
     }
 
     public static void main(String[] args) {
+        MyThread a = new MyThread("A");
 
-//        new Thread(new MyThread("A")).start();
-//        new Thread(new MyThread("B")).start();
-//        new Thread(new MyThread("C")).start();
+        new Thread(a).start();
+        new Thread(a).start();
+        new Thread(a).start();
     }
 }

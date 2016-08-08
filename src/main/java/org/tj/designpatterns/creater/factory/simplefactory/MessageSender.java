@@ -1,0 +1,11 @@
+package org.tj.designpatterns.creater.factory.simplefactory;
+
+/**
+ * Created by 001 on 16/8/7.
+ */
+public class MessageSender implements Sender {
+    @Override
+    public void send() {
+        System.out.println("send message");
+    }
+}

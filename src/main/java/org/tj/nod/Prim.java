@@ -23,6 +23,7 @@ public class Prim {
         for (int i = 0 ;i<M; i++){
             String[] ddl = reader.readLine().split(" ");
             a[Integer.parseInt(ddl[0])][Integer.parseInt(ddl[1])] = Integer.parseInt(ddl[2]);
+            a[Integer.parseInt(ddl[1])][Integer.parseInt(ddl[0])] = Integer.parseInt(ddl[2]);
         }
         PrintUtil.printArray(a,N+1,N+1);
         System.out.println(solve(a,1,N,N,0));
@@ -48,11 +49,16 @@ public class Prim {
                     d = j;
                 }
             }
+            a[i][d]=0;
+            a[d][i]=0;
+            for(int k=1;k<=N;k++){
+                a[k][d] = 0;
+            }
 //            System.out.println(min);
 //            System.out.println(sum);
             sum += min;
             count--;
-            System.out.println(d+"   "+min+"   "+sum);
+            System.out.println("点一："+i+"   点二： "+d+"   最短距离："+min+"   总长度："+sum);
             solve(a, d, N, count, sum);
         }
         return sum;
