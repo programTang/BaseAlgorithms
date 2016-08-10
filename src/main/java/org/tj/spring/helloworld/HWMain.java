@@ -1,6 +1,7 @@
 package org.tj.spring.helloworld;
 
 import javafx.application.Application;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -17,6 +18,8 @@ public class HWMain {
 
         HelloWorld helloWorld1 = (HelloWorld) applicationContext.getBean("helloworld");
         helloWorld1.getMessage();
+
+        XmlBeanFactory
 
     }
 }
