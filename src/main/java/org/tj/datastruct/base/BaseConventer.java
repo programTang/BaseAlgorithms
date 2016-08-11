@@ -1,6 +1,9 @@
 package org.tj.datastruct.base;
 
 import org.tj.datastruct.stack.Stack;
+
+import java.util.LinkedList;
+
 /**
  * Created by 001 on 16/7/4.
  */
@@ -41,6 +44,7 @@ public class BaseConventer {
         System.out.println(decimal2N(27,3));
         System.out.println(n2Decimal(1000, 3));
         System.out.println(n2N(1000,3,2));
+//        LinkedList
     }
 
 }

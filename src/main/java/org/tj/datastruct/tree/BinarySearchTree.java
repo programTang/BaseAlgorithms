@@ -1,5 +1,9 @@
 package org.tj.datastruct.tree;
 
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.LinkedBlockingDeque;
+
 /**
  * Created by 001 on 16/8/10.
  */
@@ -113,28 +117,34 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         int ldepth,rdepth;
         ldepth = depth(node.getLeft())+1;
         rdepth = depth(node.getRight())+1;
-
         return ldepth>rdepth?ldepth:rdepth;
-
     }
 
     public void preOrder(){
         preOrder(root);
+        System.out.println(" ");
     }
 
     public void order(){
         order(root);
+        System.out.println(" ");
     }
 
     public void afterOrder(){
         afterOrder(root);
+        System.out.println(" ");
+    }
+
+    public void widthOrder(){
+        widthOrder(root);
+        System.out.println(" ");
     }
 
     public void preOrder(BinaryNode<T> node){
         if (node == null){
             return;
         }else {
-            System.out.print(node.getElement());
+            System.out.print(node.getElement() + " ");
             preOrder(node.getLeft());
             preOrder(node.getRight());
         }
@@ -144,9 +154,9 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         if (node == null){
             return;
         }else {
-            preOrder(node.getLeft());
-            System.out.print(node.getElement());
-            preOrder(node.getRight());
+            order(node.getLeft());
+            System.out.print(node.getElement() + " ");
+            order(node.getRight());
         }
     }
 
@@ -154,11 +164,29 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         if (node == null){
             return;
         }else {
-            preOrder(node.getLeft());
-            preOrder(node.getRight());
-            System.out.print(node.getElement());
+            afterOrder(node.getLeft());
+            afterOrder(node.getRight());
+            System.out.print(node.getElement()+" ");
         }
     }
+
+//    宽度遍历
+    public void widthOrder(BinaryNode<T> node){
+        Queue<BinaryNode<T>> nodeQueue = new LinkedBlockingDeque<>();
+        nodeQueue.add(root);
+        while (!nodeQueue.isEmpty()){
+            BinaryNode<T> node1 = nodeQueue.poll();
+            System.out.print(node1.getElement()+" ");
+            if (node1.getLeft() != null){
+                nodeQueue.add(node1.getLeft());
+            }
+            if (node1.getRight() != null){
+                nodeQueue.add(node1.getRight());
+            }
+        }
+    }
+
+
 
 
 
@@ -212,6 +240,9 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         System.out.println(binarySearchTree.contains(6));
         System.out.println(binarySearchTree.depth());
         binarySearchTree.preOrder();
+        binarySearchTree.order();
+        binarySearchTree.afterOrder();
+        binarySearchTree.widthOrder();
     }
 
 
