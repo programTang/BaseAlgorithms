@@ -1,5 +1,6 @@
 package org.tj.datastruct.tree;
 
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -176,7 +177,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         nodeQueue.add(root);
         while (!nodeQueue.isEmpty()){
             BinaryNode<T> node1 = nodeQueue.poll();
-            System.out.print(node1.getElement()+" ");
+            System.out.print(node1.getElement() + " ");
             if (node1.getLeft() != null){
                 nodeQueue.add(node1.getLeft());
             }
@@ -186,15 +187,49 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         }
     }
 
+//    求二叉树节点个数 递归
+    public int getNodeNumsRec(){
+        return getNodeNumsRec(root);
+    }
 
 
+    public int getNodeNumsRec(BinaryNode<T> binaryNode){
+        if (binaryNode == null){
+            return 0;
+        }else {
+            return getNodeNumsRec(binaryNode.getLeft())+getNodeNumsRec(binaryNode.getRight())+1;
+        }
+    }
+//循环
+    public int getNodeNums(){
+        return getNodeNums(root);
+    }
 
+    public int getNodeNums(BinaryNode node){
+        if (node == null){
+            return 0;
+        }
+        Queue<BinaryNode> nodeQueue = new LinkedList<>();
+        nodeQueue.add(node);
+        int count = 1;
+        while (!nodeQueue.isEmpty()){
+            BinaryNode node1 = nodeQueue.remove();
+            if (node1.getLeft() != null){
+                nodeQueue.add(node1.getLeft());
+                count++;
+            }
+            if (node1.getRight() != null){
+                nodeQueue.add(node1.getRight());
+                count++;
+            }
+        }
+        return count;
+    }
 
     private static class BinaryNode<T>{
         private T element;
         private BinaryNode<T> left;
         private BinaryNode<T> right;
-
         public BinaryNode(T t){
             this.element = t;
         }
@@ -243,6 +278,8 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         binarySearchTree.order();
         binarySearchTree.afterOrder();
         binarySearchTree.widthOrder();
+        System.out.println(binarySearchTree.getNodeNumsRec());
+        System.out.println(binarySearchTree.getNodeNums());
     }
 
 
