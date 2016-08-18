@@ -14,4 +14,8 @@ public class Bird extends Animal{
         System.out.println("Bird Fly");
     }
 
+    public String getClassName(){
+        return super.getClass().getName();
+    }
+
 }

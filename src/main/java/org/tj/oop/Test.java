@@ -11,6 +11,9 @@ public class Test {
 
     public static void main(String[] args) {
         Bird bird = new Bird();
+
+        System.out.println(bird.getClassName());
+
         bird.breathe();
 
         Animal animal = new Bird();
