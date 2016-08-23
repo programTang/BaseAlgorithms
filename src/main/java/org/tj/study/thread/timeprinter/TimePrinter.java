@@ -1,4 +1,4 @@
-package org.tj.thread.timeprinter;
+package org.tj.study.thread.timeprinter;
 import java.util.*;
 
 /**

@@ -1,8 +1,4 @@
-package org.tj.thread.interrupt;
-
-import org.tj.thread.ticket.one.ThreadA;
-
-import java.util.Vector;
+package org.tj.study.thread.interrupt;
 
 /**
  * Created by 001 on 16/8/1.

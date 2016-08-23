@@ -1,4 +1,4 @@
-package org.tj.thread.ticket.one;
+package org.tj.study.thread.ticket.one;
 
 /**
  * Created by 001 on 16/8/1.
