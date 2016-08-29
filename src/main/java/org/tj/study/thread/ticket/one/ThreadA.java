@@ -17,7 +17,7 @@ public class ThreadA implements Runnable{
 
     @Override
     public  void run() {
-        while (i<5){
+        while (i<100){
 //            synchronized (this){
                 System.out.println(Thread.currentThread().getName()+":" + i++);
 //            }
@@ -29,8 +29,8 @@ public class ThreadA implements Runnable{
         ThreadA b = new ThreadA("b");
         ThreadA c = new ThreadA("c");
         Thread threadA = new Thread(a,"a");
-        Thread threadB = new Thread(a,"b");
-        Thread threadC = new Thread(a,"c");
+        Thread threadB = new Thread(b,"b");
+        Thread threadC = new Thread(c,"c");
 
         threadA.start();
         threadB.start();

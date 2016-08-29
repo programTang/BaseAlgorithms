@@ -13,8 +13,10 @@ public class TicketSell implements Runnable {
 //                    System.out.println(remian);
 //                    System.out.println(remian%8);
                     if (remian>0 && remian%8!=0){
+//                    if (remian>0){
                         System.out.println(Thread.currentThread().getName() + " 正在出售第 " + remian-- + " 票");
                         this.wait();
+                        System.out.println(Thread.currentThread().getName() + " 被唤醒");
                     }else {
                         System.out.println(Thread.currentThread().getName() + " 正在出售第 " + remian-- + " 票");
                         remian--;
@@ -39,7 +41,7 @@ public class TicketSell implements Runnable {
         Thread[] threads = new Thread[9];
         for (int i=0;i<9;i++){
             threads[i] = new Thread(ticketSell,String.valueOf(i));
-            threads[i].setPriority(i+1);
+//            threads[i].setPriority(i+1);
         }
         for (int i=0;i<threads.length;i++){
             threads[i].start();

@@ -1,5 +1,7 @@
 package org.tj.designpatterns.creater.singleton;
 
+import java.text.NumberFormat;
+
 /**
  * Created by 001 on 16/8/8.
  */
@@ -9,7 +11,7 @@ public class PerfectSingleton {
 // 这个类的加载过程是线程互斥的。这样当我们第一次调用getInstance的时候，JVM能够帮我们保证instance只被创建一次，
 // 并且会保证把赋值给instance的内存初始化完毕，这样我们就不用担心上面的问题。同时该方法也只会在第一次调用的时候使用互斥机制，
 // 这样就解决了低性能问题。这样我们暂时总结一个相对完美的单例模式：
-
+// 该种实现方式与饿汉式区别是 静态内部类是一个很特殊的类 它只有在被第一次被引用的时候才会加载类文件信息  这样就实现了线程安全的延迟加载。
     private PerfectSingleton(){
 
     }
@@ -28,5 +30,11 @@ public class PerfectSingleton {
         return getInstance();
     }
 
+    public static void main(String[] args) {
+//饿汉式
+        Runtime.getRuntime();
+        NumberFormat.getInstance();
+
+    }
 
 }
