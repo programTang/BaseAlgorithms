@@ -22,7 +22,7 @@ public class Sort {
     static void quickSort(int [] a){
         quickSort(a,0,a.length-1);
     }
-//    快排  平均时间复杂度logN 最坏情况n2
+//    快排  平均时间复杂度 NlogN 最坏情况n2
     static void quickSort(int [] a,int begin,int end){
         int tmp = a[begin];
         int i = begin,j = end;
