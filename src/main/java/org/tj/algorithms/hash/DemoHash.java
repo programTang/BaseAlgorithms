@@ -52,7 +52,9 @@ public class DemoHash {
 
 
     public static void main(String[] args) {
-
+//        HashMap
+        DemoHash demoHash = new DemoHash();
+        System.out.println(demoHash.hashCode());
 //        System.out.println(-5%4);
         int [] array = randIntArray(16);
         printArray(modhash(array,16));
