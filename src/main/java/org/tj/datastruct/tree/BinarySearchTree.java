@@ -1,5 +1,7 @@
 package org.tj.datastruct.tree;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -44,6 +46,14 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
 
     public BinarySearchTree insert(T element){
         insert(element,root);
+        return this;
+    }
+
+    public BinarySearchTree insert(T[] elements){
+        int length = elements.length;
+        for (int i=0;i<length;i++){
+            insert(elements[i]);
+        }
         return this;
     }
 

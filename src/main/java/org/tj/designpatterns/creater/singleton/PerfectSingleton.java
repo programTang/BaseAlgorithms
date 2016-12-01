@@ -32,8 +32,10 @@ public class PerfectSingleton {
 
     public static void main(String[] args) {
 //饿汉式
-        Runtime.getRuntime();
-        NumberFormat.getInstance();
+
+        System.out.println(Integer.toUnsignedString(-123213));
+//        Runtime.getRuntime();
+//        NumberFormat.getInstance();
 
     }
 

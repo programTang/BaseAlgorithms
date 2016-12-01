@@ -1,5 +1,12 @@
 <root>
+    <item name='java.lang.Object'>
+        <annotation name='java.lang.annotation.Deprecated'/>
+    </item>
     <item name='java.lang.String'>
+        <annotation name='java.lang.annotation.Deprecated'/>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='java.lang.System out'>
         <annotation name='java.lang.annotation.Deprecated'/>
     </item>
 </root>

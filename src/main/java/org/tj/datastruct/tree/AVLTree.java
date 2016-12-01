@@ -83,10 +83,11 @@ public class AVLTree<T extends Comparable<? super T>> {
             }else {
                 node.setRight(insert(node.getRight(),e));
                 if (node.getRight().getHeight() - node.getLeft().getHeight() == 2){
-                    if(node.getLeft().get)
+//                    if(node.getLeft().get)
                 }
             }
         }
+        return null;
     }
 
 

@@ -12,9 +12,9 @@ public class DeadLockDemo {
 
     public static void main(String[] args) {
 //        A线程拿了A的锁后休眠 如果此时B线程拿了B的锁 接下来就等待A对象的锁  醒来后等待B对象锁 此时互相等待。
-//        for (int i=0;i<100;i++){
+        for (int i=0;i<100;i++){
             new DeadLockDemo().deadLock();
-//        }
+        }
     }
 
     public void deadLock(){
@@ -38,8 +38,15 @@ public class DeadLockDemo {
                }
            }
         });
-
+//        threadA.setPriority(1);
+//        threadB.setPriority(10);
         threadA.start();
+//        try {
+//            threadA.join();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
         threadB.start();
 
     }
